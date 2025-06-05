@@ -2,6 +2,10 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { loadInitialData } from './utils/loadInitialData.js';
+import router from './routes/products.routes.js';
+
+
 dotenv.config();
 
 const app = express();
@@ -17,6 +21,7 @@ app.get('/', (req, res)=>{
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB');
+    loadInitialData();
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
     });
