@@ -11,6 +11,8 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+console.log('router:', router);
+app.use('/products',router);
 
 const PORT = process.env.PORT || 3000;
 

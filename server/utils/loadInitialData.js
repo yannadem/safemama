@@ -11,13 +11,13 @@ const initialProducts = [
     name: 'Ibuprofen',
     safety: 'unsafe',
     notes: 'Not recommended during pregnancy, especially in the third trimester.',
-    source: 'https://www.natalben.com/el-embarazo-y-tus-dudas/embarazada-paracetamol-seguro',
+    source: 'https://www.natalben.com/el-embarazo-y-tus-dudas/embarazada-paracetamol-seguro', // temporary link - replace with correct link later
   },
     {
     name: 'Sunscreen SPF 50',
     safety: 'safe',
     notes: 'Recommended to protect skin during pregnancy.',
-    source: 'https://www.natalben.com/el-embarazo-y-tus-dudas/embarazada-paracetamol-seguro',
+    source: 'https://www.natalben.com/el-embarazo-y-tus-dudas/embarazada-paracetamol-seguro', // temporary link - replace with correct link later
   }
 ];
  export async function loadInitialData () {
