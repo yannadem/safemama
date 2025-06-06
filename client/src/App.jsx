@@ -1,5 +1,6 @@
 import './App.css';
 import ProductList from './components/ProductList';
+import SearchBar from './components/SearchBar';
 
 export default function App () {
   return (
