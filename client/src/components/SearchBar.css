@@ -1,0 +1,36 @@
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.search-form input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  flex-grow: 1;
+}
+
+.search-form button {
+  align-self: flex-start;
+  background-color: #f06292;;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+  background-color: #e05483;
+}
+
+.search-form .clear-btn {
+  background-color: #aaa;
+}
+
+.search-form .clear-btn:hover {
+  background-color: #888;
+}

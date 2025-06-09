@@ -11,14 +11,16 @@ export default function App() {
       <h1>SafeMama 🍼</h1>
       <p className='tagline'>Check if a product is safe to use during pregnancy</p>
       </header>
-      <section className='content-card'> 
-      <main>
-      <NewProductForm/>
-      <ProductList/>
-      
-    
-    </main>
+
+    <section className="main-container">
+      <div className="product-list">
+        <ProductList />
+      </div>
+      <aside className="sidebar-form">
+        <NewProductForm />
+      </aside>
     </section>
+    
     </>
   );
 }

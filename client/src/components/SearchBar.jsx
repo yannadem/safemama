@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './SearchBar.css';
 
 export default function SearchBar ({onSearch}){
   const [userInput, setUserInput] = useState('');
@@ -14,7 +15,7 @@ export default function SearchBar ({onSearch}){
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="search-form" onSubmit={handleSubmit}>
       <input type="text" placeholder="search product"  value={userInput} onChange={(ev)=> setUserInput(ev.target.value)} />
       <button type="submit">Search</button>
          {userInput && (

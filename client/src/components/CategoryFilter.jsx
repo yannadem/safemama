@@ -1,3 +1,5 @@
+import './CategoryFilter.css';
+
 export default function CategoryFilter ({onSelectCategory}) {
   const categories = ['All', 'Food', 'Cosmetics', 'Medications'];
 

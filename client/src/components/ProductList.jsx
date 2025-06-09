@@ -34,7 +34,7 @@ export default function ProductList() {
 
       <ul>
         {
-          products.map(prod => (
+          products.slice(0,8).map(prod => (
             <li key={prod._id} className={`product-card ${prod.safety}`}>
               <strong>{prod.name}</strong> - {prod.safety}
               <p>{prod.notes}</p>
