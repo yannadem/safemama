@@ -1,5 +1,6 @@
 import './App.css';
 import ProductList from './components/ProductList';
+import NewProductForm from './components/NewProductForm';
 
 export default function App() {
 
@@ -12,8 +13,10 @@ export default function App() {
       </header>
       <section className='content-card'> 
       <main>
-  
+      <NewProductForm/>
       <ProductList/>
+      
+    
     </main>
     </section>
     </>
