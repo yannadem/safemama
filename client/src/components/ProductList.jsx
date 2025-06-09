@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import CategoryFilter from "./CategoryFilter";
+import './ProductList.css';
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
@@ -38,7 +39,7 @@ export default function ProductList() {
             <li key={prod._id} className={`product-card ${prod.safety}`}>
               <strong>{prod.name}</strong> - {prod.safety}
               <p>{prod.notes}</p>
-              <a href={prod.source} target='_blank'>
+              <a className="source" href={prod.source} target='_blank'>
                 Source
               </a>
             </li>
