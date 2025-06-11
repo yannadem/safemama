@@ -27,15 +27,14 @@ export default function ProductList() {
     <section>
       <h2>Products</h2>
       <SearchBar onSearch={setQuery} />
-      <CategoryFilter onSelectCategory={(cat) => {
-        console.log("Categoría seleccionada:", cat);
+      <CategoryFilter onSelectCategory={(cat) => {  
         setCategory(cat);
       }} />
 
 
       <ul>
         {
-          products.slice(0,8).map(prod => (
+          products.map(prod => (
             <li key={prod._id} className={`product-card ${prod.safety}`}>
               <strong>{prod.name}</strong> - {prod.safety}
               <p>{prod.notes}</p>
