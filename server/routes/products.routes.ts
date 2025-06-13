@@ -54,10 +54,17 @@ router.get('/', async (req : Request<RequestParams, ResponseBody, RequestBody, R
 
 });
 
+  type AssumedBody = {
+    name: string;
+    safety: 'safe' | 'unsafe' | 'caution';
+    category: string;
+    notes: string;
+    source: string;
+  }
 // post - Commented out for now because products are only loaded at startup If I want to allow users to add products from the frontend (if i have time today), uncomment this POST route.
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', async (req, res) => {
   try {
-    const { name, safety, category, notes, source } = req.body;
+    const { name, safety, category, notes, source }: AssumedBody = req.body;
 
     if (!name || !safety || !category || !notes || !source) {
        res.status(400).json({ error: 'All fields are required' });

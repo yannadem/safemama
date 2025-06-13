@@ -1,8 +1,16 @@
 import { useState } from "react";
 import './NewProductForm.css';
 
+interface FormData {
+  name: string;
+  safety: 'safe' | 'unsafe' | 'caution';
+  category: string;
+  notes: string;
+  source: string;
+};
+
 export default function NewProductForm () {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     safety: "unsafe",
     category: "",
@@ -27,7 +35,7 @@ export default function NewProductForm () {
         },
         body: JSON.stringify(formData),
       });
-      if (!response.ok) throw new Error('error to add new error');
+      if (!response.ok) throw new Error('Failed to add new product');
 
       setFormData({
         name: "",

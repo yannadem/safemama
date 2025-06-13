@@ -1,10 +1,10 @@
 import './CategoryFilter.css';
 
-interface CatergoryProps {
-  onSelectCategory : Function
+interface CategoryProps {
+  onSelectCategory: (category: string) => void;
 }
 
-export default function CategoryFilter ({onSelectCategory}:CatergoryProps) {
+export default function CategoryFilter ({onSelectCategory}: CategoryProps) {
   const categories = ['All', 'Food', 'Cosmetics', 'Medications'];
 
   return (

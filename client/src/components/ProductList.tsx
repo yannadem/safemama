@@ -4,6 +4,7 @@ import CategoryFilter from "./CategoryFilter";
 import './ProductList.css';
 
 interface InitialProducts {
+  _id: string;
   name: string;
   safety: string;
   category: string;
@@ -11,11 +12,10 @@ interface InitialProducts {
   source: string
 }
 
-
 export default function ProductList() {
   const [products, setProducts] = useState<InitialProducts[]>([]);
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('All');
+  const [query, setQuery] = useState<string>('');
+  const [category, setCategory] = useState<string>('All');
 
   useEffect(() => {
 
@@ -27,7 +27,7 @@ export default function ProductList() {
 
     fetch(url)
       .then(res => res.json())
-      .then(data => setProducts(data))
+      .then((data: InitialProducts[]) => setProducts(data))
       .catch(err => console.error('Error fetching products', err))
 
   }, [query, category]);

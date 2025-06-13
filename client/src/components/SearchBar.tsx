@@ -1,10 +1,14 @@
 import { useState } from "react";
 import './SearchBar.css';
 
-export default function SearchBar ({onSearch}){
+interface OnSearchBar  {
+  onSearch: (arg: string) => void;
+}
+
+export default function SearchBar({onSearch}:OnSearchBar) {
   const [userInput, setUserInput] = useState('');
 
-  const handleSubmit = (ev) => {
+  const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     onSearch(userInput);
   }
@@ -16,7 +20,7 @@ export default function SearchBar ({onSearch}){
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      <input type="text" placeholder="search product"  value={userInput} onChange={(ev)=> setUserInput(ev.target.value)} />
+      <input type="text" placeholder="search product"  value={userInput} onChange={(ev: React.ChangeEvent<HTMLInputElement>)=> setUserInput(ev.target.value)} />
       <button type="submit">Search</button>
          {userInput && (
       <button type="button" onClick={handleClear}>
@@ -24,6 +28,5 @@ export default function SearchBar ({onSearch}){
       </button>
     )}
     </form>
-
   );
 }
