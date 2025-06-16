@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { loadInitialData } from './utils/loadInitialData';
 import router from './routes/products.routes';
+import connectDB from './db';
 
 
 dotenv.config();
@@ -20,15 +21,19 @@ app.get('/', (req, res)=>{
   res.send('SafeMama API is running');
 })
 
-mongoose.connect(process.env.MONGO_URI!)
-  .then(() => {
-    console.log('Connected to MongoDB');
-    loadInitialData();
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error('MongoDB connection error:', err);
-  });
+connectDB()
+
+// mongoose.connect(process.env.MONGO_URI!)
+//   .then(() => {
+//     console.log('Connected to MongoDB');
+//     loadInitialData();
+//     app.listen(PORT, () => {
+//       console.log(`Server running on port ${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error('MongoDB connection error:', err);
+//   });
+
+  export default app;
 
