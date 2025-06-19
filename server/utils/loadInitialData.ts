@@ -112,16 +112,24 @@ const initialProducts : InitialProducts[] = [
 
 export async function loadInitialData() {
   try {
+
     const count = await Product.countDocuments();
     if (count === 0) {
       await Product.insertMany(initialProducts);
-      console.log("initial products loaded into de database");
+      console.log("initial products loaded into the database");
+
     } else {
-      Product.deleteMany();
-      // console.log("Datebae already has products");
-      await Product.insertMany(initialProducts);
+
+      console.log("Datebase already has products");
+
+      // Below if we want to update the initial products
+      // Product.deleteMany();
+      // await Product.insertMany(initialProducts);
+
     }
   } catch (error) {
+
     console.log("Error", error);
+
   }
 }

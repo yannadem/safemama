@@ -12,7 +12,7 @@ interface InitialProducts {
   source: string
 }
 
-export default function ProductList() {
+export default function ProductList () {
   const [products, setProducts] = useState<InitialProducts[]>([]);
   const [query, setQuery] = useState<string>('');
   const [category, setCategory] = useState<string>('All');
@@ -32,6 +32,26 @@ export default function ProductList() {
 
   }, [query, category]);
 
+  // New Delete handler
+  const handleDelete = async (id: string) => {
+    try {
+
+      const response = await fetch(`http://localhost:3000/products/${id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) throw new Error('Failed to delete product');
+
+      // Update list of products
+      setProducts(products.filter(prod => prod._id !== id));
+
+    } catch (error) {
+
+      console.error(error);
+
+    }
+  };
+
+
   return (
     <section>
       <h2>Products</h2>
@@ -50,6 +70,19 @@ export default function ProductList() {
               <a className="source" href={prod.source} target='_blank'>
                 Source
               </a>
+
+              <div>
+                {/* Addition of Delete Product Button */}
+                <button
+                  onClick={() => handleDelete(prod._id)}
+                  aria-label={`Delete product ${prod.name}`}
+                  className="delete-button"
+                >
+                  Delete
+                </button>
+              </div>
+
+
             </li>
           ))
         }

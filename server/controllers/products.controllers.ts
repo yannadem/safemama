@@ -74,5 +74,27 @@ async function postProduct (req: Request<{}, {}, RequestBody, {}>, res: Response
 
 };
 
-export { getProducts, postProduct }
+interface RequestParams {
+  id: string;
+}
+
+async function deleteProduct(req: Request<RequestParams, {}, {}, {}, {}>, res: Response) {
+  const { id } = req.params;
+
+  try {
+
+    const deletedProduct = await Product.findByIdAndDelete(id);
+    if (!deletedProduct) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+    res.status(200).json({ message: 'Product deleted' });
+
+  } catch (error) {
+
+    console.error('Delete product error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+}
+
+export { getProducts, postProduct, deleteProduct };
 
