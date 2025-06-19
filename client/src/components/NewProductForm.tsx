@@ -80,7 +80,7 @@ export default function NewProductForm () {
           <input id="source" type="text" name="source" placeholder="Source Link" value={formData.source} onChange={handleChange} />
         </div>
         <div className="update-btn">
-          <button type="submit">Update</button>
+          <button type="submit">Create</button>
         </div>
       </form>
     </section>
